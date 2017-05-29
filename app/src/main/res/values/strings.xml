@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Chedder</string>
+    <string-array name="countries">
+        <item>Nigeria</item>
+        <item>Ghana</item>
+        <item>Kenya</item>
+    </string-array>
+    <string-array name="banksNG">
+        <item>Nigeria</item>
+        <item>FIRST CITY MONUMENT BANK PLC</item>
+        <item>ACCESS BANK NIGERIA</item>
+        <item>UNITY BANK PLC</item>
+        <item>STANBIC IBTC BANK PLC</item>
+    </string-array>
+    <string-array name="banksKE">
+        <item>Kenya</item>
+        <item>FIRST CITY MONUMENT BANK PLC</item>
+        <item>ACCESS BANK NIGERIA</item>
+        <item>UNITY BANK PLC</item>
+        <item>STANBIC IBTC BANK PLC</item>
+    </string-array>
+    <string-array name="banksGH">
+        <item>Ghana</item>
+        <item>FIRST CITY MONUMENT BANK PLC</item>
+        <item>ACCESS BANK NIGERIA</item>
+        <item>UNITY BANK PLC</item>
+        <item>STANBIC IBTC BANK PLC</item>
+    </string-array>
+</resources>
