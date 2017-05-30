@@ -26,4 +26,7 @@
         <item>UNITY BANK PLC</item>
         <item>STANBIC IBTC BANK PLC</item>
     </string-array>
+    <string name="naira">&#x20a6;</string>
+    <string name="shillings"></string>
+    <string name="cedis"></string>
 </resources>

@@ -1,6 +1,5 @@
 package com.johnotu.apps.cheddermobile;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,19 +7,30 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Toast;
+
+import com.bluelinelabs.logansquare.LoganSquare;
+import com.johnotu.apps.cheddermobile.models.TransferRequest;
 
 public class InitiateTransferActivity extends AppCompatActivity {
 
     private Spinner countryspinner, bankspinner;
     private Button confirmTransferButton;
+    private RadioGroup receiverType;
+    private EditText accountNumber, amountToSend;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initiate_transfer);
+
+        accountNumber = (EditText) findViewById(R.id.recipient_account);
+        amountToSend = (EditText) findViewById(R.id.amount_to_send);
+        receiverType = (RadioGroup) findViewById(R.id.receiver_type);
 
         countryspinner = (Spinner) findViewById(R.id.country_spinner);
         ArrayAdapter<CharSequence> countryadapter = ArrayAdapter.createFromResource(this, R.array.countries, android.R.layout.simple_spinner_dropdown_item);
@@ -47,14 +57,35 @@ public class InitiateTransferActivity extends AppCompatActivity {
         confirmTransferButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Please confirm the transaction details", Toast.LENGTH_LONG).show();
-                Intent confirmtransfer = new Intent(v.getContext(), ConfirmTransactionActivity.class);
-                startActivity(confirmtransfer);
+            startTransaction();
             }
         });
+    }
+
+    private void startTransaction (){
+        String selectedType;
 
 
+        int selectedId = receiverType.getCheckedRadioButtonId();
+        if(validReceiverSelected(selectedId))
+        {
+            RadioButton selectedButton = (RadioButton) findViewById(selectedId);
+            selectedType = selectedButton.getText().toString();
+        } else {
+            //TODO:show error
+        }
 
+        String country = (String) countryspinner.getSelectedItem();
+        String bank = (String) bankspinner.getSelectedItem();
+        String accountNumberStr = accountNumber.getText().toString();
+        float amountToSendFlt = Float.parseFloat(amountToSend.getText().toString());  //TODO: Validate me to prevent crash
+
+        TransferRequest request = new TransferRequest(amountToSendFlt);
+
+    }
+
+    private boolean validReceiverSelected(int selectedId){
+        return selectedId != -1;
     }
 
     private void setCountry (String country){

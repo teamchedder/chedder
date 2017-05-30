@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.johnotu.apps.cheddermobile">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -22,7 +22,8 @@
         <activity android:name=".CardToAccountActivity" />
         <activity android:name=".ConfirmTransactionActivity" />
         <activity android:name=".TransactionProgressActivity" />
-        <activity android:name=".TransactionHistoryActivity"></activity>
+        <activity android:name=".TransactionHistoryActivity" />
+        <activity android:name=".HistoryActivity"></activity>
     </application>
 
 </manifest>
