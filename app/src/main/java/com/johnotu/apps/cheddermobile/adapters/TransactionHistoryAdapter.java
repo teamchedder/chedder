@@ -51,7 +51,7 @@ public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionH
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View itemView = inflater.inflate(R.layout.activity_transaction_history, parent, false);
+        View itemView = inflater.inflate(R.layout.transaction_history_item, parent, false);
 
         ViewHolder viewHolder = new ViewHolder(itemView);
         return viewHolder;
