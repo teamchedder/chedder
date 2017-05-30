@@ -1,5 +1,7 @@
 package com.johnotu.apps.cheddermobile.models;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -14,6 +16,7 @@ public class TransactionItem {
     private Date transactionDate;
     private double transactionAmount;
     private Mode transactionMode;
+
 
     public TransactionItem(String receiverName, boolean isSuccessful, Currency currency, Date transactionDate, double transactionAmount, Mode transactionMode) {
         this.receiverName = receiverName;
@@ -70,5 +73,15 @@ public class TransactionItem {
 
     public void setTransactionMode(Mode transactionMode) {
         this.transactionMode = transactionMode;
+    }
+
+    public static ArrayList<TransactionItem> genItems (){
+        ArrayList transactionItems = new ArrayList(Arrays.asList(
+                new TransactionItem("John Doe", true, Currency.GHC, new Date(), 2500.00, Mode.BANKACCOUNT),
+                new TransactionItem("Jane Johnson", true, Currency.KSH, new Date(), 1500.00, Mode.MOBILEMONEY),
+                new TransactionItem("Ubong Akpan", false, Currency.NGN, new Date(), 2000.00, Mode.BANKACCOUNT)
+        ));
+
+        return transactionItems;
     }
 }

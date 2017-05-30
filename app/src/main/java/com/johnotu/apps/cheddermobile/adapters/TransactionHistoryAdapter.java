@@ -2,6 +2,7 @@ package com.johnotu.apps.cheddermobile.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,16 +22,17 @@ import java.util.List;
 
 public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionHistoryAdapter.ViewHolder> {
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+
         public TextView receiverName, transactionStatus,
                 transactionCurrency, transactionAmount,
                 transactionMode, transactionDate;
-
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             receiverName = (TextView) itemView.findViewById(R.id.receiver_name);
+            transactionAmount = (TextView) itemView.findViewById(R.id.transaction_amount);
             transactionStatus = (TextView) itemView.findViewById(R.id.transaction_status);
             transactionCurrency = (TextView) itemView.findViewById(R.id.transaction_currency);
             transactionMode = (TextView) itemView.findViewById(R.id.transaction_mode);
@@ -48,8 +50,8 @@ public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionH
 
     @Override
     public TransactionHistoryAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
-        LayoutInflater inflater = LayoutInflater.from(context);
+
+        LayoutInflater inflater = LayoutInflater.from(mContext);
 
         View itemView = inflater.inflate(R.layout.transaction_history_item, parent, false);
 
@@ -66,7 +68,7 @@ public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionH
         holder.transactionCurrency.setText(currencyHelper(item.getCurrency()));
         holder.transactionAmount.setText(String.valueOf(item.getTransactionAmount()));
         holder.transactionMode.setText(item.getTransactionMode() == Mode.BANKACCOUNT ? "BANKACCOUNT" : "MOBILEMONEY");
-        SimpleDateFormat sdf = new SimpleDateFormat("d:M:y");
+        SimpleDateFormat sdf = new SimpleDateFormat("d-M-y");
         holder.transactionDate.setText(sdf.format(item.getTransactionDate()));
 
     }
@@ -85,6 +87,5 @@ public class TransactionHistoryAdapter extends RecyclerView.Adapter<TransactionH
     @Override
     public int getItemCount() {
         return mItems.size();
-        //return 0;
     }
 }

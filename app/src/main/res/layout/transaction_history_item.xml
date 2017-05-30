@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="@dimen/page_item_padding">
 
     <RelativeLayout
@@ -47,5 +47,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/transaction_date"
+        android:text="Hello"
         tools:text = "22:05:2017"/>
 </LinearLayout>
