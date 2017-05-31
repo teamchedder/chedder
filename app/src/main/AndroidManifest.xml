@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".InitiateTransferActivity" />
+        <activity android:name=".InitiateTransferActivity"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".CardToAccountActivity" />
         <activity android:name=".ConfirmTransactionActivity" />
         <activity android:name=".TransactionProgressActivity" />
