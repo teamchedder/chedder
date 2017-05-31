@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Confirm transaction details"
+        android:textColor="#4373e3"
         android:textSize="@dimen/label_text_size"/>
 
     <LinearLayout
@@ -153,5 +154,7 @@
         android:layout_height="wrap_content"
         android:text="Send"
         android:layout_marginTop="@dimen/page_item_padding"
+        android:background="@drawable/blueroundedbutton"
+        android:textColor="#ffffff"
         android:id="@+id/send_money"/>
 </LinearLayout>
